@@ -4,6 +4,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
+import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 @Configuration
@@ -17,5 +18,12 @@ public class AppConfig {
         resolver.setPrefix("/WEB-INF/secure/");  
         resolver.setSuffix(".jsp");
         return resolver;  
-    }	
+    }
+    @Bean
+    public ResourceBundleMessageSource messageSource(){
+    	ResourceBundleMessageSource source=new ResourceBundleMessageSource();
+    	source.setBasename("localization/messages");
+    	source.setUseCodeAsDefaultMessage(true);
+    	return source;
+    }
 } 

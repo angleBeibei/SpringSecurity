@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=gbk" pageEncoding="gbk"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring" %> 
 <%@ page session="true" %>
 <%@ page isELIgnored="false" %>
 <html>
@@ -11,7 +11,7 @@
        <h3>Spring 4 Security Example</h3>
         <font color="red">
         <c:if test="${param.failed==true }">
-           <div>login failed,try again!</div>
+           <spring:message code="login.failed_message"/>
            <c:if test="${not empty SPRING_SECURITY_LAST_EXCEPTION }">
 		   		<c:out value="${SPRING_SECURITY_LAST_EXCEPTION.message}"/>
 		   </c:if>

@@ -22,7 +22,8 @@ public class AppConfig {
     @Bean
     public ResourceBundleMessageSource messageSource(){
     	ResourceBundleMessageSource source=new ResourceBundleMessageSource();
-    	source.setBasename("localization/messages");
+    	source.setBasenames("localization/messages");
+    	source.setBasenames("localization/validation");
     	source.setUseCodeAsDefaultMessage(true);
     	return source;
     }

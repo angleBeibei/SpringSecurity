@@ -19,6 +19,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests().
+		antMatchers("/registration/**").permitAll().
 		antMatchers("/secure/**").access("hasRole('ROLE_ADMIN')").
 			and().
 		formLogin().  //login configuration
@@ -36,8 +37,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Autowired
 	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
 		//auth.inMemoryAuthentication().withUser("ram").password("ram123").roles("ADMIN");
-		auth.userDetailsService(userDetailsService);
-		//.passwordEncoder(passwordEncoder()); 
+		auth.userDetailsService(userDetailsService)
+		.passwordEncoder(passwordEncoder()); 
 	}	
 	
 	@Bean

@@ -1,5 +1,7 @@
 package com.users.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,6 +16,7 @@ import com.users.validator.UserValidator;
 
 @Controller
 public class UserController {
+	private Logger logger=LoggerFactory.getLogger(UserController.class);
 	@Autowired
 	private UserValidator userValidator;
 	private UserDaoImpl userDaoImpl;
@@ -35,6 +38,7 @@ public class UserController {
 			return "registration";
 		}
 		System.out.println(userForm.getUsername());
+		logger.info("registrate new user,username="+userForm.getUsername()+",password="+userForm.getPassword());
 		userDaoImpl.save(userForm);
 		return "redirect:/secure/";
 	}

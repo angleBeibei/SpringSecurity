@@ -33,6 +33,15 @@
 				</td>
 			</tr>
 			<tr>
+				<td>enabled:</td>	
+				<td>
+					<spring:bind path="enabled">
+					<form:checkbox path="enabled"></form:checkbox>
+					<form:errors path="enabled"></form:errors>
+					</spring:bind>
+				</td>
+			</tr>
+			<tr>
 				<td>
 					<input type="submit" value="registe"/>
 				</td>

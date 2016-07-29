@@ -40,7 +40,6 @@ public class UserDaoImpl implements UserDao {
 		System.out.println(user.getPassword());
 		user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
 		System.out.println(user.getPassword());
-		user.setEnabled(false);
 		//user.setUserRole(userRole);
 		Session session=this.currentSession();
 		Transaction tx=null;
